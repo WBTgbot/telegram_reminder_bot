@@ -1,6 +1,7 @@
 package scheduler
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
@@ -61,4 +62,15 @@ func SendReminder(chatID int64, task string, username string) {
 
 func StopScheduler() {
 	// Тут нужно описать логику остановки планировщика.
+}
+
+// Функция для удаления задачи по ID
+func DeleteTask(taskID string) error {
+	// Логика для удаления задачи
+	// Если задача не найдена, можно вернуть ошибку
+	if taskID == "" {
+		return errors.New("task ID cannot be empty")
+	}
+	// Здесь нужно добавить код для фактического удаления задачи.
+	return nil // Возрващаем ошибку если удаление не удалось
 }
